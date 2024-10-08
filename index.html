@@ -10,7 +10,7 @@
 
     <div class="container">
         <h1>Molarity Calculator</h1>
-        <p class="description">Calculate the mass of salt needed for a specific molarity.</p>
+        <p class="description">Calculate the mass of salt needed for a specific molarity, molality, or normality.</p>
         
         <form id="calculatorForm">
             <label for="salt">Select Salt:</label>
@@ -107,8 +107,15 @@
                 </option>
             </select>
 
-            <label for="molarity">Select Molarity:</label>
-            <select id="molarity" required>
+            <label for="concentrationType">Select Concentration Type:</label>
+            <select id="concentrationType" required>
+                <option value="molarity">Molarity</option>
+                <option value="molality">Molality</option>
+                <option value="normality">Normality</option>
+            </select>
+
+            <label for="molarityValue">Select Molarity Value:</label>
+            <select id="molarityValue" required>
                 <option value="0.1">M/10</option>
                 <option value="0.05">M/20</option>
                 <option value="0.0333">M/30</option>
@@ -116,6 +123,9 @@
                 <option value="0.02">M/50</option>
                 <option value="0.01">M/100</option>
             </select>
+
+            <label for="concentrationValue" style="display:none;">Concentration Value:</label>
+            <input type="number" id="concentrationValue" placeholder="Concentration Value" style="display:none;">
 
             <label for="volume">Enter Volume:</label>
             <div style="display: flex; align-items: center;">
