@@ -10,25 +10,24 @@
 
     <div class="container">
         <h1>Molarity Calculator</h1>
+        <img src="chemistry-background.png" alt="Chemistry Background" class="chemistry-image">
+        <p class="description">Calculate the mass of salt needed for a specific molarity.</p>
         
-        <!-- Form for inputs -->
         <form id="calculatorForm">
-            <!-- Salt Selection Dropdown -->
             <label for="salt">Select Salt:</label>
             <select id="salt" required>
-                <option value="58.44">Sodium Chloride (NaCl) - 58.44 g/mol</option>
-                <option value="74.55">Potassium Chloride (KCl) - 74.55 g/mol</option>
-                <option value="110.98">Calcium Chloride (CaCl₂) - 110.98 g/mol</option>
-                <option value="249.68">Copper(II) Sulfate (CuSO₄·5H₂O) - 249.68 g/mol</option>
-                <option value="106">Sodium Carbonate (Na₂CO₃) - 106 g/mol</option>
-                <option value="101.1">Potassium Nitrate (KNO₃) - 101.1 g/mol</option>
-                <option value="53.49">Ammonium Chloride (NH₄Cl) - 53.49 g/mol</option>
-                <option value="287.54">Zinc Sulfate (ZnSO₄·7H₂O) - 287.54 g/mol</option>
-                <option value="84.01">Sodium Bicarbonate (NaHCO₃) - 84.01 g/mol</option>
-                <option value="246.48">Magnesium Sulfate (MgSO₄·7H₂O) - 246.48 g/mol</option>
+                <option value="NaCl" data-description="Sodium Chloride: Commonly known as table salt, used in cooking and food preservation." data-molecular-mass="58.44" data-properties="Density: 2.165 g/cm³; Solubility: 36 g/100 mL at 20°C">Sodium Chloride (NaCl)</option>
+                <option value="KCl" data-description="Potassium Chloride: Used in fertilizers and as a salt substitute." data-molecular-mass="74.55" data-properties="Density: 1.98 g/cm³; Solubility: 34 g/100 mL at 20°C">Potassium Chloride (KCl)</option>
+                <option value="CaCl2" data-description="Calcium Chloride: Used for de-icing and as a drying agent." data-molecular-mass="110.98" data-properties="Density: 2.15 g/cm³; Solubility: 74 g/100 mL at 20°C">Calcium Chloride (CaCl₂)</option>
+                <option value="CuSO4" data-description="Copper(II) Sulfate: Used in agriculture as a fungicide and herbicide." data-molecular-mass="249.68" data-properties="Density: 2.284 g/cm³; Solubility: 36 g/100 mL at 20°C">Copper(II) Sulfate (CuSO₄·5H₂O)</option>
+                <option value="Na2CO3" data-description="Sodium Carbonate: Used in glass making and as a pH regulator." data-molecular-mass="106" data-properties="Density: 2.533 g/cm³; Solubility: 22 g/100 mL at 20°C">Sodium Carbonate (Na₂CO₃)</option>
+                <option value="KNO3" data-description="Potassium Nitrate: Used in fertilizers and food preservation." data-molecular-mass="101.1" data-properties="Density: 2.11 g/cm³; Solubility: 31 g/100 mL at 20°C">Potassium Nitrate (KNO₃)</option>
+                <option value="NH4Cl" data-description="Ammonium Chloride: Used in fertilizers and as a food additive." data-molecular-mass="53.49" data-properties="Density: 1.53 g/cm³; Solubility: 37 g/100 mL at 20°C">Ammonium Chloride (NH₄Cl)</option>
+                <option value="ZnSO4" data-description="Zinc Sulfate: Used as a dietary supplement and in agriculture." data-molecular-mass="287.54" data-properties="Density: 1.97 g/cm³; Solubility: 32 g/100 mL at 20°C">Zinc Sulfate (ZnSO₄·7H₂O)</option>
+                <option value="NaHCO3" data-description="Sodium Bicarbonate: Commonly known as baking soda, used in cooking and cleaning." data-molecular-mass="84.01" data-properties="Density: 2.20 g/cm³; Solubility: 9.6 g/100 mL at 20°C">Sodium Bicarbonate (NaHCO₃)</option>
+                <option value="MgSO4" data-description="Magnesium Sulfate: Used as a drying agent and in Epsom salts." data-molecular-mass="246.48" data-properties="Density: 2.66 g/cm³; Solubility: 26 g/100 mL at 20°C">Magnesium Sulfate (MgSO₄·7H₂O)</option>
             </select>
 
-            <!-- Molarity Selection Dropdown -->
             <label for="molarity">Select Molarity:</label>
             <select id="molarity" required>
                 <option value="0.1">M/10</option>
@@ -39,18 +38,42 @@
                 <option value="0.01">M/100</option>
             </select>
 
-            <!-- Volume Input Field -->
             <label for="volume">Enter Volume (in liters):</label>
             <input type="number" id="volume" placeholder="Volume in liters" required>
 
-            <!-- Calculate Button -->
-            <button type="submit">Calculate</button>
+            <div class="buttons">
+                <button type="submit">Calculate Mass</button>
+                <button type="button" id="resetButton">Reset</button>
+            </div>
         </form>
 
-        <!-- Result Display -->
+        <div id="saltProperties" class="salt-properties">
+            <h3>Salt Properties:</h3>
+            <p id="propertiesText"></p>
+        </div>
+
+        <div id="molecularMass" class="molecular-mass">
+            <h3>Molecular Mass:</h3>
+            <p id="molecularMassValue"></p>
+        </div>
+
+        <div id="molecularFormula" class="molecular-formula">
+            <h3>Molecular Formula:</h3>
+            <p id="formulaText"></p>
+        </div>
+
+        <div id="saltDescription" class="salt-description">
+            <h3>Salt Description:</h3>
+            <p id="descriptionText"></p>
+        </div>
+
         <div id="result" class="result">
             <h3>Result:</h3>
             <p id="mass"></p>
+        </div>
+
+        <div class="buttons">
+            <button type="button" id="calculateMolecularMassButton">Get Molecular Mass</button>
         </div>
     </div>
 
