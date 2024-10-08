@@ -1,5 +1,138 @@
 body {
     font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #4A90E2, #9013FE); /* Purple gradient */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white; /* Solid white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #333; /* Dark gray for headings */
+}
+
+.description {
+    text-align: center;
+    color: #666; /* Medium gray for description */
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px;
+    font-size: 1rem;
+    color: #555; /* Darker gray for labels */
+}
+
+select, input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Original light gray border */
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+select:focus, input:focus {
+    border-color: #2196F3; /* Dark blue on focus */
+}
+
+button {
+    width: 48%;
+    padding: 10px;
+    background-color: #4CAF50; /* Original green for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05);
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #FFF3E0; /* Light orange background for result */
+    border: 1px solid #FF9800; /* Darker orange border */
+}
+
+#mass {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333; /* Dark gray for results */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.nav-container {
+    text-align: center; /* Center the link */
+    margin-top: 20px;  /* Add some space above the link */
+}
+
+.quiz-link {
+    display: inline-block; /* Allow padding and margin */
+    padding: 10px 20px; /* Add padding for better clickability */
+    background-color: #4A90E2; /* Background color */
+    color: white; /* Text color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2rem; /* Increase font size */
+    transition: background-color 0.3s, transform 0.3s; /* Add transitions for effects */
+}
+
+/* Hover effects */
+.quiz-link:hover {
+    background-color: #357ABD; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}body {
+    font-family: 'Arial', sans-serif;
     background: linear-gradient(to right, #4A90E2, #9013FE);
     margin: 0;
     padding: 0;
@@ -19,43 +152,51 @@ h1 {
     color: #333;
 }
 
-.chemistry-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
 .description {
     text-align: center;
     color: #666;
 }
 
-label {
+.option-button {
     display: block;
-    margin: 15px 0 5px;
-    font-size: 1rem;
-    color: #555;
-}
-
-select, input {
-    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-select:focus, input:focus {
-    border-color: #2196F3;
+.option-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
 }
 
+.next-button, .restart-button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.next-button:hover, .restart-button:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+}
+
+.result-container {
+    text-align: center;
+}
 button {
     width: 48%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Original green for buttons */
     color: white;
     border: none;
     border-radius: 5px;
@@ -66,50 +207,19 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Darker green on hover */
     transform: scale(1.05);
 }
-
-.result, .salt-info {
+.additional-salt-info {
     margin-top: 20px;
     padding: 15px;
     border-radius: 8px;
+    background-color: #E1F5FE; /* Light blue background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-
-.result {
-    background-color: #FFF3E0;
-    border: 1px solid #FF9800;
+.additional-salt-info h3 {
+    color: #2196F3; /* Dark blue for headings */
 }
-
-.salt-info > div {
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #E1F5FE;
-    border: 1px solid #2196F3;
-}
-
-.tooltip {
-    position: absolute;
-    background-color: #FFF;
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 5px;
-    z-index: 1000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.fade-in {
-    animation.fade-in {
-    animation: fadeIn 0.5s;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.additional-salt-info p {
+    color: #333; /* Dark gray for text */
 }

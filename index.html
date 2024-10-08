@@ -15,16 +15,96 @@
         <form id="calculatorForm">
             <label for="salt">Select Salt:</label>
             <select id="salt" required>
-                <option value="NaCl" data-description="Sodium Chloride: Commonly known as table salt, used in cooking and food preservation." data-molecular-mass="58.44" data-formula="NaCl" data-properties="Used in cooking and food preservation.">Sodium Chloride (NaCl)</option>
-                <option value="KCl" data-description="Potassium Chloride: Used in fertilizers and as a salt substitute." data-molecular-mass="74.55" data-formula="KCl" data-properties="Used in fertilizers and as a salt substitute.">Potassium Chloride (KCl)</option>
-                <option value="CaCl2" data-description="Calcium Chloride: Used for de-icing and as a drying agent." data-molecular-mass="110.98" data-formula="CaCl₂" data-properties="Used for de-icing and as a drying agent.">Calcium Chloride (CaCl₂)</option>
-                <option value="CuSO4" data-description="Copper(II) Sulfate: Used in agriculture as a fungicide and herbicide." data-molecular-mass="249.68" data-formula="CuSO₄·5H₂O" data-properties="Used in agriculture as a fungicide and herbicide.">Copper(II) Sulfate (CuSO₄·5H₂O)</option>
-                <option value="Na2CO3" data-description="Sodium Carbonate: Used in glass making and as a pH regulator." data-molecular-mass="106" data-formula="Na₂CO₃" data-properties="Used in glass making and as a pH regulator.">Sodium Carbonate (Na₂CO₃)</option>
-                <option value="KNO3" data-description="Potassium Nitrate: Used in fertilizers and food preservation." data-molecular-mass="101.1" data-formula="KNO₃" data-properties="Used in fertilizers and food preservation.">Potassium Nitrate (KNO₃)</option>
-                <option value="NH4Cl" data-description="Ammonium Chloride: Used in fertilizers and as a food additive." data-molecular-mass="53.49" data-formula="NH₄Cl" data-properties="Used in fertilizers and as a food additive.">Ammonium Chloride (NH₄Cl)</option>
-                <option value="ZnSO4" data-description="Zinc Sulfate: Used as a dietary supplement and in agriculture." data-molecular-mass="287.54" data-formula="ZnSO₄·7H₂O" data-properties="Used as a dietary supplement and in agriculture.">Zinc Sulfate (ZnSO₄·7H₂O)</option>
-                <option value="NaHCO3" data-description="Sodium Bicarbonate: Commonly known as baking soda, used in cooking and cleaning." data-molecular-mass="84.01" data-formula="NaHCO₃" data-properties="Used in cooking and cleaning.">Sodium Bicarbonate (NaHCO₃)</option>
-                <option value="MgSO4" data-description="Magnesium Sulfate: Used as a drying agent and in Epsom salts." data-molecular-mass="246.48" data-formula="MgSO₄·7H₂O" data-properties="Used as a drying agent and in Epsom salts.">Magnesium Sulfate (MgSO₄·7H₂O)</option>
+                <option value="NaCl" 
+                        data-uses="Used as table salt and food preservative." 
+                        data-safety="Generally safe; excessive consumption can lead to health issues." 
+                        data-chemical-properties="Highly soluble in water." 
+                        data-health-benefits="Helps maintain fluid balance in the body." 
+                        data-environmental-impact="Excessive runoff can harm aquatic ecosystems." 
+                        data-fun-facts="The term 'salt' can refer to a wide range of chemical compounds.">
+                    Sodium Chloride (NaCl)
+                </option>
+                <option value="KCl" 
+                        data-uses="Commonly used in fertilizers and as a salt substitute." 
+                        data-safety="Generally safe; can be harmful in large quantities." 
+                        data-chemical-properties="Moderately soluble in water." 
+                        data-health-benefits="Helps maintain electrolyte balance." 
+                        data-environmental-impact="Can leach into water supplies." 
+                        data-fun-facts="Often used in medicine for potassium supplementation.">
+                    Potassium Chloride (KCl)
+                </option>
+                <option value="CaCl2" 
+                        data-uses="Used for de-icing and as a drying agent." 
+                        data-safety="Safe for use; can irritate skin." 
+                        data-chemical-properties="Highly soluble in water." 
+                        data-health-benefits="Used in food preservation." 
+                        data-environmental-impact="Can impact aquatic life in high concentrations." 
+                        data-fun-facts="Calcium chloride can absorb moisture from the air.">
+                    Calcium Chloride (CaCl₂)
+                </option>
+                <option value="CuSO4" 
+                        data-uses="Used in agriculture as a fungicide and herbicide." 
+                        data-safety="Toxic in large quantities; handle with care." 
+                        data-chemical-properties="Soluble in water." 
+                        data-health-benefits="Used in trace amounts for animal feed." 
+                        data-environmental-impact="Can be harmful to plants in excess." 
+                        data-fun-facts="Known as blue vitriol due to its color.">
+                    Copper(II) Sulfate (CuSO₄·5H₂O)
+                </option>
+                <option value="Na2CO3" 
+                        data-uses="Used in glass making and as a pH regulator." 
+                        data-safety="Generally safe; can irritate skin." 
+                        data-chemical-properties="Soluble in water." 
+                        data-health-benefits="Helps in the digestion process." 
+                        data-environmental-impact="Excess can affect aquatic life." 
+                        data-fun-facts="Commonly known as soda ash or washing soda.">
+                    Sodium Carbonate (Na₂CO₃)
+                </option>
+                <option value="KNO3" 
+                        data-uses="Used in fertilizers and food preservation." 
+                        data-safety="Generally safe; can cause skin irritation." 
+                        data-chemical-properties="Soluble in water." 
+                        data-health-benefits="Provides potassium and nitrogen for plants." 
+                        data-environmental-impact="Excess can lead to nutrient runoff." 
+                        data-fun-facts="Also used in fireworks and explosives.">
+                    Potassium Nitrate (KNO₃)
+                </option>
+                <option value="NH4Cl" 
+                        data-uses="Used in fertilizers and as a food additive." 
+                        data-safety="Generally safe; excessive consumption can be harmful." 
+                        data-chemical-properties="Soluble in water." 
+                        data-health-benefits="Can improve soil health." 
+                        data-environmental-impact="Low risk to the environment." 
+                        data-fun-facts="Ammonium chloride is used in some cough medicines.">
+                    Ammonium Chloride (NH₄Cl)
+                </option>
+                <option value="ZnSO4" 
+                        data-uses="Used as a dietary supplement and in agriculture." 
+                        data-safety="Generally safe; can cause stomach upset in large doses." 
+                        data-chemical-properties="Soluble in water." 
+                        data-health-benefits="Supports immune function." 
+                        data-environmental-impact="Low risk; often used in fertilizers." 
+                        data-fun-facts="Zinc sulfate is used in skin treatments.">
+                    Zinc Sulfate (ZnSO₄·7H₂O)
+                </option>
+                <option value="NaHCO3" 
+                        data-uses="Commonly known as baking soda, used in cooking and cleaning." 
+                        data-safety="Generally safe; can cause gastric distress in large amounts." 
+                        data-chemical-properties="Soluble in water." 
+                        data-health-benefits="Acts as an antacid." 
+                        data-environmental-impact="Low risk; often used in gardening." 
+                        data-fun-facts="Baking soda is a versatile household ingredient.">
+                    Sodium Bicarbonate (NaHCO₃)
+                </option>
+                <option value="MgSO4" 
+                        data-uses="Used as a drying agent and in Epsom salts." 
+                        data-safety="Generally safe; excessive consumption can lead to digestive issues." 
+                        data-chemical-properties="Soluble in water." 
+                        data-health-benefits="Relieves muscle soreness." 
+                        data-environmental-impact="Low risk; often used in agriculture." 
+                        data-fun-facts="Epsom salt is often used in baths for relaxation.">
+                    Magnesium Sulfate (MgSO₄·7H₂O)
+                </option>
             </select>
 
             <label for="molarity">Select Molarity:</label>
@@ -35,7 +115,6 @@
                 <option value="0.025">M/40</option>
                 <option value="0.02">M/50</option>
                 <option value="0.01">M/100</option>
-                <option value="0.005">M/200</option>
             </select>
 
             <label for="volume">Enter Volume (in liters):</label>
@@ -47,35 +126,28 @@
             </div>
         </form>
 
-        <div id="result" class="result" style="display:none;">
+        <div id="result" class="result">
             <h3>Result:</h3>
             <p id="mass"></p>
         </div>
+        
 
-        <div class="salt-info">
-            <div id="molecularMass" class="molecular-mass">
-                <h3>Molecular Mass:</h3>
-                <p id="molecularMassValue"></p>
-            </div>
-
-            <div id="molecularFormula" class="molecular-formula">
-                <h3>Molecular Formula:</h3>
-                <p id="formulaText"></p>
-            </div>
-
-            <div id="saltDescription" class="salt-description">
-                <h3>Salt Description:</h3>
-                <p id="descriptionText"></p>
-            </div>
-
-            <div id="saltProperties" class="salt-properties">
-                <h3>Salt Properties:</h3>
-                <p id="propertiesText"></p>
-            </div>
+        <!-- Additional Salt Information Section -->
+        <div id="additionalSaltInfo" class="additional-salt-info">
+            <h3>More About the Salt</h3>
+            <p id="usesText"></p>
+            <p id="safetyText"></p>
+            <p id="chemicalPropertiesText"></p>
+            <p id="healthBenefitsText"></p>
+            <p id="environmentalImpactText"></p>
+            <p id="funFactsText"></p>
         </div>
+        <div class="nav-container">
+    <a href="quiz.html" class="nav-button quiz-link">Take the Salt Quiz!</a>
+</div>
+
     </div>
 
-    <div id="tooltip" class="tooltip" style="display:none;"></div>
     <script src="script.js"></script>
 
 </body>

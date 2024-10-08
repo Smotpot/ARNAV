@@ -1,57 +1,37 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const calculatorForm = document.getElementById('calculatorForm');
-    const resultDiv = document.getElementById('result');
-    const massDisplay = document.getElementById('mass');
-    const molecularMassDisplay = document.getElementById('molecularMassValue');
-    const formulaDisplay = document.getElementById('formulaText');
-    const descriptionDisplay = document.getElementById('descriptionText');
-    const propertiesDisplay = document.getElementById('propertiesText');
-    const tooltip = document.getElementById('tooltip');
+document.getElementById('calculatorForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    calculatorForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        
-        const saltSelect = document.getElementById('salt');
-        const selectedSalt = saltSelect.options[saltSelect.selectedIndex];
-        const volume = parseFloat(document.getElementById('volume').value);
-        const molarity = parseFloat(document.getElementById('molarity').value);
-        
-        const molecularMass = parseFloat(selectedSalt.getAttribute('data-molecular-mass'));
-        const massNeeded = molecularMass * molarity * volume;
+    const salt = document.getElementById('salt');
+    const volume = document.getElementById('volume').value;
+    const molarity = salt.value;
+    const molarMass = {
+        NaCl: 58.44,
+        KCl: 74.55,
+        CaCl2: 110.98,
+        CuSO4: 159.61,
+        Na2CO3: 105.99,
+        KNO3: 101.10,
+        NH4Cl: 53.49,
+        ZnSO4: 161.44,
+        NaHCO3: 84.01,
+        MgSO4: 120.37
+    };
 
-        massDisplay.textContent = `You need ${massNeeded.toFixed(2)} grams of ${selectedSalt.value}.`;
-        resultDiv.style.display = 'block';
-        resultDiv.classList.add('fade-in');
+    const mass = molarity * molarMass[salt.value] * volume; // Mass in grams
+    document.getElementById('mass').innerText = `You need ${mass.toFixed(2)} grams of ${salt.options[salt.selectedIndex].text}.`;
 
-        // Display additional information
-        molecularMassDisplay.textContent = `${molecularMass} g/mol`;
-        formulaDisplay.textContent = selectedSalt.getAttribute('data-formula');
-        descriptionDisplay.textContent = selectedSalt.getAttribute('data-description');
-        propertiesDisplay.textContent = selectedSalt.getAttribute('data-properties');
-    });
+    // Display additional information about the selected salt
+    document.getElementById('usesText').innerText = `Uses: ${salt.options[salt.selectedIndex].dataset.uses}`;
+    document.getElementById('safetyText').innerText = `Safety: ${salt.options[salt.selectedIndex].dataset.safety}`;
+    document.getElementById('chemicalPropertiesText').innerText = `Chemical Properties: ${salt.options[salt.selectedIndex].dataset.chemicalProperties}`;
+    document.getElementById('healthBenefitsText').innerText = `Health Benefits: ${salt.options[salt.selectedIndex].dataset.healthBenefits}`;
+    document.getElementById('environmentalImpactText').innerText = `Environmental Impact: ${salt.options[salt.selectedIndex].dataset.environmentalImpact}`;
+    document.getElementById('funFactsText').innerText = `Fun Facts: ${salt.options[salt.selectedIndex].dataset.funFacts}`;
+});
 
-    // Reset button functionality
-    document.getElementById('resetButton').addEventListener('click', () => {
-        calculatorForm.reset();
-        resultDiv.style.display = 'none';
-        molecularMassDisplay.textContent = '';
-        formulaDisplay.textContent = '';
-        descriptionDisplay.textContent = '';
-        propertiesDisplay.textContent = '';
-    });
-
-    // Tooltip for salt selection
-    saltSelect.addEventListener('mouseover', (event) => {
-        if (event.target.tagName === 'OPTION') {
-            const tooltipText = event.target.getAttribute('data-description');
-            tooltip.textContent = tooltipText;
-            tooltip.style.display = 'block';
-            tooltip.style.left = `${event.clientX}px`;
-            tooltip.style.top = `${event.clientY + 20}px`;
-        }
-    });
-
-    saltSelect.addEventListener('mouseout', () => {
-        tooltip.style.display = 'none';
-    });
+// Reset button functionality
+document.getElementById('resetButton').addEventListener('click', function() {
+    document.getElementById('calculatorForm').reset();
+    document.getElementById('mass').innerText = '';
+    document.getElementById('additionalSaltInfo').querySelectorAll('p').forEach(p => p.innerText = '');
 });
