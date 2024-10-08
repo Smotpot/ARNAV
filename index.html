@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molarity Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Molarity Calculator</h1>
+        
+        <!-- Form for inputs -->
+        <form id="calculatorForm">
+            <!-- Salt Selection Dropdown -->
+            <label for="salt">Select Salt:</label>
+            <select id="salt" required>
+                <option value="58.44">Sodium Chloride (NaCl) - 58.44 g/mol</option>
+                <option value="74.55">Potassium Chloride (KCl) - 74.55 g/mol</option>
+                <option value="110.98">Calcium Chloride (CaCl₂) - 110.98 g/mol</option>
+                <option value="249.68">Copper(II) Sulfate (CuSO₄·5H₂O) - 249.68 g/mol</option>
+                <option value="106">Sodium Carbonate (Na₂CO₃) - 106 g/mol</option>
+                <option value="101.1">Potassium Nitrate (KNO₃) - 101.1 g/mol</option>
+                <option value="53.49">Ammonium Chloride (NH₄Cl) - 53.49 g/mol</option>
+                <option value="287.54">Zinc Sulfate (ZnSO₄·7H₂O) - 287.54 g/mol</option>
+                <option value="84.01">Sodium Bicarbonate (NaHCO₃) - 84.01 g/mol</option>
+                <option value="246.48">Magnesium Sulfate (MgSO₄·7H₂O) - 246.48 g/mol</option>
+            </select>
+
+            <!-- Molarity Selection Dropdown -->
+            <label for="molarity">Select Molarity:</label>
+            <select id="molarity" required>
+                <option value="0.1">M/10</option>
+                <option value="0.05">M/20</option>
+                <option value="0.0333">M/30</option>
+                <option value="0.025">M/40</option>
+                <option value="0.02">M/50</option>
+                <option value="0.01">M/100</option>
+            </select>
+
+            <!-- Volume Input Field -->
+            <label for="volume">Enter Volume (in liters):</label>
+            <input type="number" id="volume" placeholder="Volume in liters" required>
+
+            <!-- Calculate Button -->
+            <button type="submit">Calculate</button>
+        </form>
+
+        <!-- Result Display -->
+        <div id="result" class="result">
+            <h3>Result:</h3>
+            <p id="mass"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
