@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Molarity Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your main CSS file -->
 </head>
 <body>
 
@@ -117,8 +117,14 @@
                 <option value="0.01">M/100</option>
             </select>
 
-            <label for="volume">Enter Volume (in liters):</label>
-            <input type="number" id="volume" placeholder="Volume in liters" required>
+            <label for="volume">Enter Volume:</label>
+            <div style="display: flex; align-items: center;">
+                <input type="number" id="volume" placeholder="Volume" required>
+                <select id="volumeUnit" style="margin-left: 10px;">
+                    <option value="L">liters (L)</option>
+                    <option value="mL">milliliters (mL)</option>
+                </select>
+            </div>
 
             <div class="buttons">
                 <button type="submit">Calculate Mass</button>
@@ -131,7 +137,6 @@
             <p id="mass"></p>
         </div>
         
-
         <!-- Additional Salt Information Section -->
         <div id="additionalSaltInfo" class="additional-salt-info">
             <h3>More About the Salt</h3>
@@ -143,12 +148,11 @@
             <p id="funFactsText"></p>
         </div>
         <div class="nav-container">
-    <a href="quiz.html" class="nav-button quiz-link">Take the Salt Quiz!</a>
-</div>
+            <a href="quiz.html" class="nav-button quiz-link">Take the Salt Quiz!</a>
+        </div>
 
     </div>
 
-    <script src="script.js"></script>
-
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
 </body>
 </html>
