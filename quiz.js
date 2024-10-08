@@ -137,7 +137,7 @@ function restartQuiz() {
 }
 
 function returnToCalculator() {
-    window.location.href = 'calculator.html'; // Replace with your calculator page link
+    window.location.href = 'index.html'; // Replace with your calculator page link
 }
 
 // Start the quiz when the page loads
