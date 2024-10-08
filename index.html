@@ -15,16 +15,16 @@
         <form id="calculatorForm">
             <label for="salt">Select Salt:</label>
             <select id="salt" required>
-                <option value="NaCl" data-description="Sodium Chloride: Commonly known as table salt, used in cooking and food preservation." data-molecular-mass="58.44" data-properties="Density: 2.165 g/cm³; Solubility: 36 g/100 mL at 20°C">Sodium Chloride (NaCl)</option>
-                <option value="KCl" data-description="Potassium Chloride: Used in fertilizers and as a salt substitute." data-molecular-mass="74.55" data-properties="Density: 1.98 g/cm³; Solubility: 34 g/100 mL at 20°C">Potassium Chloride (KCl)</option>
-                <option value="CaCl2" data-description="Calcium Chloride: Used for de-icing and as a drying agent." data-molecular-mass="110.98" data-properties="Density: 2.15 g/cm³; Solubility: 74 g/100 mL at 20°C">Calcium Chloride (CaCl₂)</option>
-                <option value="CuSO4" data-description="Copper(II) Sulfate: Used in agriculture as a fungicide and herbicide." data-molecular-mass="249.68" data-properties="Density: 2.284 g/cm³; Solubility: 36 g/100 mL at 20°C">Copper(II) Sulfate (CuSO₄·5H₂O)</option>
-                <option value="Na2CO3" data-description="Sodium Carbonate: Used in glass making and as a pH regulator." data-molecular-mass="106" data-properties="Density: 2.533 g/cm³; Solubility: 22 g/100 mL at 20°C">Sodium Carbonate (Na₂CO₃)</option>
-                <option value="KNO3" data-description="Potassium Nitrate: Used in fertilizers and food preservation." data-molecular-mass="101.1" data-properties="Density: 2.11 g/cm³; Solubility: 31 g/100 mL at 20°C">Potassium Nitrate (KNO₃)</option>
-                <option value="NH4Cl" data-description="Ammonium Chloride: Used in fertilizers and as a food additive." data-molecular-mass="53.49" data-properties="Density: 1.53 g/cm³; Solubility: 37 g/100 mL at 20°C">Ammonium Chloride (NH₄Cl)</option>
-                <option value="ZnSO4" data-description="Zinc Sulfate: Used as a dietary supplement and in agriculture." data-molecular-mass="287.54" data-properties="Density: 1.97 g/cm³; Solubility: 32 g/100 mL at 20°C">Zinc Sulfate (ZnSO₄·7H₂O)</option>
-                <option value="NaHCO3" data-description="Sodium Bicarbonate: Commonly known as baking soda, used in cooking and cleaning." data-molecular-mass="84.01" data-properties="Density: 2.20 g/cm³; Solubility: 9.6 g/100 mL at 20°C">Sodium Bicarbonate (NaHCO₃)</option>
-                <option value="MgSO4" data-description="Magnesium Sulfate: Used as a drying agent and in Epsom salts." data-molecular-mass="246.48" data-properties="Density: 2.66 g/cm³; Solubility: 26 g/100 mL at 20°C">Magnesium Sulfate (MgSO₄·7H₂O)</option>
+                <option value="NaCl" data-description="Sodium Chloride: Commonly known as table salt, used in cooking and food preservation." data-molecular-mass="58.44" data-formula="NaCl" data-properties="Used in cooking and food preservation.">Sodium Chloride (NaCl)</option>
+                <option value="KCl" data-description="Potassium Chloride: Used in fertilizers and as a salt substitute." data-molecular-mass="74.55" data-formula="KCl" data-properties="Used in fertilizers and as a salt substitute.">Potassium Chloride (KCl)</option>
+                <option value="CaCl2" data-description="Calcium Chloride: Used for de-icing and as a drying agent." data-molecular-mass="110.98" data-formula="CaCl₂" data-properties="Used for de-icing and as a drying agent.">Calcium Chloride (CaCl₂)</option>
+                <option value="CuSO4" data-description="Copper(II) Sulfate: Used in agriculture as a fungicide and herbicide." data-molecular-mass="249.68" data-formula="CuSO₄·5H₂O" data-properties="Used in agriculture as a fungicide and herbicide.">Copper(II) Sulfate (CuSO₄·5H₂O)</option>
+                <option value="Na2CO3" data-description="Sodium Carbonate: Used in glass making and as a pH regulator." data-molecular-mass="106" data-formula="Na₂CO₃" data-properties="Used in glass making and as a pH regulator.">Sodium Carbonate (Na₂CO₃)</option>
+                <option value="KNO3" data-description="Potassium Nitrate: Used in fertilizers and food preservation." data-molecular-mass="101.1" data-formula="KNO₃" data-properties="Used in fertilizers and food preservation.">Potassium Nitrate (KNO₃)</option>
+                <option value="NH4Cl" data-description="Ammonium Chloride: Used in fertilizers and as a food additive." data-molecular-mass="53.49" data-formula="NH₄Cl" data-properties="Used in fertilizers and as a food additive.">Ammonium Chloride (NH₄Cl)</option>
+                <option value="ZnSO4" data-description="Zinc Sulfate: Used as a dietary supplement and in agriculture." data-molecular-mass="287.54" data-formula="ZnSO₄·7H₂O" data-properties="Used as a dietary supplement and in agriculture.">Zinc Sulfate (ZnSO₄·7H₂O)</option>
+                <option value="NaHCO3" data-description="Sodium Bicarbonate: Commonly known as baking soda, used in cooking and cleaning." data-molecular-mass="84.01" data-formula="NaHCO₃" data-properties="Used in cooking and cleaning.">Sodium Bicarbonate (NaHCO₃)</option>
+                <option value="MgSO4" data-description="Magnesium Sulfate: Used as a drying agent and in Epsom salts." data-molecular-mass="246.48" data-formula="MgSO₄·7H₂O" data-properties="Used as a drying agent and in Epsom salts.">Magnesium Sulfate (MgSO₄·7H₂O)</option>
             </select>
 
             <label for="molarity">Select Molarity:</label>
@@ -35,6 +35,7 @@
                 <option value="0.025">M/40</option>
                 <option value="0.02">M/50</option>
                 <option value="0.01">M/100</option>
+                <option value="0.005">M/200</option>
             </select>
 
             <label for="volume">Enter Volume (in liters):</label>
@@ -46,36 +47,35 @@
             </div>
         </form>
 
-        <div id="saltProperties" class="salt-properties">
-            <h3>Salt Properties:</h3>
-            <p id="propertiesText"></p>
-        </div>
-
-        <div id="molecularMass" class="molecular-mass">
-            <h3>Molecular Mass:</h3>
-            <p id="molecularMassValue"></p>
-        </div>
-
-        <div id="molecularFormula" class="molecular-formula">
-            <h3>Molecular Formula:</h3>
-            <p id="formulaText"></p>
-        </div>
-
-        <div id="saltDescription" class="salt-description">
-            <h3>Salt Description:</h3>
-            <p id="descriptionText"></p>
-        </div>
-
-        <div id="result" class="result">
+        <div id="result" class="result" style="display:none;">
             <h3>Result:</h3>
             <p id="mass"></p>
         </div>
 
-        <div class="buttons">
-            <button type="button" id="calculateMolecularMassButton">Get Molecular Mass</button>
+        <div class="salt-info">
+            <div id="molecularMass" class="molecular-mass">
+                <h3>Molecular Mass:</h3>
+                <p id="molecularMassValue"></p>
+            </div>
+
+            <div id="molecularFormula" class="molecular-formula">
+                <h3>Molecular Formula:</h3>
+                <p id="formulaText"></p>
+            </div>
+
+            <div id="saltDescription" class="salt-description">
+                <h3>Salt Description:</h3>
+                <p id="descriptionText"></p>
+            </div>
+
+            <div id="saltProperties" class="salt-properties">
+                <h3>Salt Properties:</h3>
+                <p id="propertiesText"></p>
+            </div>
         </div>
     </div>
 
+    <div id="tooltip" class="tooltip" style="display:none;"></div>
     <script src="script.js"></script>
 
 </body>
