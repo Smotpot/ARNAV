@@ -17,11 +17,14 @@ body {
 h1 {
     text-align: center;
     color: #333; /* Dark gray for headings */
+    font-size: 2.5rem; /* Enhanced heading size */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
 }
 
 .description {
     text-align: center;
     color: #666; /* Medium gray for description */
+    font-size: 1.1rem; /* Slightly larger font for description */
 }
 
 label {
@@ -31,38 +34,72 @@ label {
     color: #555; /* Darker gray for labels */
 }
 
-select, input {
+/* Select Menu Styles */
+select {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* Increased padding for better click area */
     margin: 10px 0;
-    border: 1px solid #ccc; /* Original light gray border */
-    border-radius: 4px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Slightly rounded corners */
     font-size: 1rem;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, background-color 0.3s;
+    background-color: #f9f9f9; /* Light background for dropdown */
 }
 
-select:focus, input:focus {
+/* Dropdown Menu Focus and Hover Effects */
+select:hover {
+    background-color: #f0f0f0; /* Slightly darker on hover */
+}
+
+select:focus {
     border-color: #2196F3; /* Dark blue on focus */
+    background-color: #fff; /* White background on focus */
 }
 
+/* Input Field Styles */
+input {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem;
+    transition: border-color 0.3s, background-color 0.3s;
+    background-color: #f9f9f9; /* Light background for input */
+}
+
+/* Input Field Focus and Hover Effects */
+input:hover {
+    background-color: #f0f0f0; /* Slightly darker on hover */
+}
+
+input:focus {
+    border-color: #2196F3; /* Dark blue on focus */
+    background-color: #fff; /* White background on focus */
+}
+
+/* Button Styles */
 button {
     width: 48%;
-    padding: 10px;
-    background-color: #4CAF50; /* Original green for buttons */
+    padding: 12px; /* Increased padding */
+    background-color: #4CAF50; /* Green for buttons */
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px; /* Rounded corners */
     cursor: pointer;
     font-size: 1rem;
     margin-top: 10px;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
+/* Button Hover Effects */
 button:hover {
     background-color: #45a049; /* Darker green on hover */
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
 }
 
+/* Result Styles */
 .result {
     margin-top: 20px;
     padding: 15px;
@@ -77,6 +114,7 @@ button:hover {
     color: #333; /* Dark gray for results */
 }
 
+/* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -86,8 +124,8 @@ button:hover {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 .modal-content {
@@ -98,6 +136,7 @@ button:hover {
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
+/* Close Button Styles */
 .close {
     color: #aaa;
     float: right;
@@ -111,11 +150,14 @@ button:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Navigation Container Styles */
 .nav-container {
     text-align: center; /* Center the link */
     margin-top: 20px;  /* Add some space above the link */
 }
 
+/* Navigation Link Styles */
 .quiz-link {
     display: inline-block; /* Allow padding and margin */
     padding: 10px 20px; /* Add padding for better clickability */
@@ -127,36 +169,30 @@ button:hover {
     transition: background-color 0.3s, transform 0.3s; /* Add transitions for effects */
 }
 
-/* Hover effects */
+/* Hover effects for navigation links */
 .quiz-link:hover {
     background-color: #357ABD; /* Darker blue on hover */
     transform: scale(1.05); /* Slightly increase size on hover */
-}body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #4A90E2, #9013FE);
-    margin: 0;
-    padding: 0;
 }
 
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+/* Additional Salt Info Styles */
+.additional-salt-info {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #E1F5FE; /* Light blue background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-    text-align: center;
-    color: #333;
+.additional-salt-info h3 {
+    color: #2196F3; /* Dark blue for headings */
 }
 
-.description {
-    text-align: center;
-    color: #666;
+.additional-salt-info p {
+    color: #333; /* Dark gray for text */
 }
 
+/* Option Button Styles */
 .option-button {
     display: block;
     background-color: #4CAF50;
@@ -174,6 +210,7 @@ h1 {
     transform: scale(1.05);
 }
 
+/* Next and Restart Button Styles */
 .next-button, .restart-button {
     background-color: #4A90E2;
     color: white;
@@ -190,36 +227,7 @@ h1 {
     transform: scale(1.05);
 }
 
+/* Result Container Styles */
 .result-container {
     text-align: center;
-}
-button {
-    width: 48%;
-    padding: 10px;
-    background-color: #4CAF50; /* Original green for buttons */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 10px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-    transform: scale(1.05);
-}
-.additional-salt-info {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #E1F5FE; /* Light blue background */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-.additional-salt-info h3 {
-    color: #2196F3; /* Dark blue for headings */
-}
-.additional-salt-info p {
-    color: #333; /* Dark gray for text */
 }
