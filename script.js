@@ -1,111 +1,77 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const calculatorForm = document.getElementById("calculatorForm");
-    const resultElement = document.getElementById("mass");
-    const additionalSaltInfo = document.getElementById("additionalSaltInfo");
-    const usesText = document.getElementById("usesText");
-    const safetyText = document.getElementById("safetyText");
-    const chemicalPropertiesText = document.getElementById("chemicalPropertiesText");
-    const healthBenefitsText = document.getElementById("healthBenefitsText");
-    const environmentalImpactText = document.getElementById("environmentalImpactText");
-    const funFactsText = document.getElementById("funFactsText");
-    const resetButton = document.getElementById("resetButton");
+document.getElementById("concentrationType").addEventListener("change", function() {
+    const concentrationType = this.value;
+    const volumeSection = document.getElementById("volumeSection");
+    const volumeLabel = document.getElementById("volumeLabel");
+    
+    if (concentrationType === "molality") {
+        // Hide volume input for molality
+        volumeSection.style.display = "none";
+        volumeLabel.style.display = "none";
+    } else {
+        // Show volume input for molarity and normality
+        volumeSection.style.display = "flex";
+        volumeLabel.style.display = "block";
+    }
+});
 
-    // Function to calculate molar mass based on the selected salt
-    const getMolarMass = (salt) => {
-        const molarMasses = {
-            NaCl: 58.44,
-            KCl: 74.55,
-            CaCl2: 110.98,
-            CuSO4: 249.68,
-            Na2CO3: 105.99,
-            KNO3: 101.10,
-            NH4Cl: 53.49,
-            ZnSO4: 161.44,
-            NaHCO3: 84.01,
-            MgSO4: 120.37,
-            C2H2O4: 90.03,  // Oxalic Acid
-            MohrSalt: 392.14, // Mohr's Salt (FeSO₄(NH₄)₂SO₄·6H₂O)
-            KMnO4: 158.04,  // Potassium Permanganate
-            HCl: 36.46,     // Hydrochloric Acid
-            NaOH: 40.00,    // Sodium Hydroxide
-        };
-        return molarMasses[salt] || 0;
+document.getElementById("calculatorForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    // Get input values
+    const salt = document.getElementById("salt").value;
+    const concentrationType = document.getElementById("concentrationType").value;
+    const molarityValue = parseFloat(document.getElementById("molarityValue").value);
+    const volume = concentrationType !== "molality" ? parseFloat(document.getElementById("volume").value) : 1; // Default volume to 1 for molality
+    const volumeUnit = document.getElementById("volumeUnit").value;
+    
+    // Calculate mass based on salt type and concentration
+    const molarMasses = {
+        NaCl: 58.44,
+        KCl: 74.55,
+        CaCl2: 110.98,
+        CuSO4: 249.68,
+        Na2CO3: 105.99,
+        KNO3: 101.1,
+        NH4Cl: 53.49,
+        ZnSO4: 161.47,
+        NaHCO3: 84.01,
+        MgSO4: 120.37,
+        C2H2O4: 90.03,
+        MohrSalt: 392.13,
+        KMnO4: 158.04,
+        HCl: 36.46,
+        NaOH: 40.00
     };
+    
+    const molarMass = molarMasses[salt];
+    let mass;
 
-    // Function to calculate mass needed based on concentration type
-    const calculateMass = (molarity, volume, molarMass) => {
-        return molarity * volume * molarMass; // Mass = Molarity * Volume * Molar Mass
-    };
+    if (concentrationType === "molarity") {
+        mass = molarityValue * molarMass * (volumeUnit === "L" ? volume : volume / 1000);
+    } else if (concentrationType === "molality") {
+        mass = molarityValue * molarMass;
+    } else if (concentrationType === "normality") {
+        mass = molarityValue * molarMass * (volumeUnit === "L" ? volume : volume / 1000);
+    }
+    
+    document.getElementById("mass").innerText = `You need ${mass.toFixed(2)} grams of ${salt}.`;
+    document.getElementById("result").style.display = "block";
 
-    // Function to handle form submission
-    const handleFormSubmit = (event) => {
-        event.preventDefault(); // Prevent the form from submitting normally
+    // Display additional salt information
+    const selectedSalt = document.querySelector("#salt option:checked");
+    document.getElementById("usesText").innerText = `Uses: ${selectedSalt.getAttribute('data-uses')}`;
+    document.getElementById("safetyText").innerText = `Safety: ${selectedSalt.getAttribute('data-safety')}`;
+    document.getElementById("chemicalPropertiesText").innerText = `Chemical Properties: ${selectedSalt.getAttribute('data-chemical-properties')}`;
+    document.getElementById("healthBenefitsText").innerText = `Health Benefits: ${selectedSalt.getAttribute('data-health-benefits')}`;
+    document.getElementById("environmentalImpactText").innerText = `Environmental Impact: ${selectedSalt.getAttribute('data-environmental-impact')}`;
+    document.getElementById("funFactsText").innerText = `Fun Facts: ${selectedSalt.getAttribute('data-fun-facts')}`;
+    document.getElementById("additionalSaltInfo").style.display = "block";
+});
 
-        const salt = document.getElementById('salt').value;
-        const concentrationType = document.getElementById('concentrationType').value;
-        const molarityValue = document.getElementById('molarityValue').value;
-        const volume = parseFloat(document.getElementById('volume').value);
-        const volumeUnit = document.getElementById('volumeUnit').value;
-        const molarMass = getMolarMass(salt);
-        
-        // Convert volume to liters if it's in milliliters
-        const volumeInLiters = volumeUnit === 'mL' ? volume / 1000 : volume;
-
-        let massNeeded = 0;
-
-        // Calculate based on selected concentration type
-        if (concentrationType === 'molarity') {
-            massNeeded = calculateMass(parseFloat(molarityValue), volumeInLiters, molarMass);
-        } else if (concentrationType === 'molality') {
-            // Placeholder for molality calculation, assuming density of water is approximately 1kg/L
-            massNeeded = calculateMass(parseFloat(molarityValue), volumeInLiters, molarMass); // Adjust if needed
-        } else if (concentrationType === 'normality') {
-            // Placeholder for normality calculation (same approach can be used as molarity)
-            massNeeded = calculateMass(parseFloat(molarityValue), volumeInLiters, molarMass); // Adjust if needed
-        }
-
-        // Display the result
-        resultElement.innerText = `Mass needed: ${massNeeded.toFixed(2)} grams`;
-
-        // Display additional salt information
-        displaySaltInfo(salt);
-    };
-
-    // Function to reset the form and result
-    const resetForm = () => {
-        document.getElementById('calculatorForm').reset();
-        resultElement.innerText = '';
-        additionalSaltInfo.style.display = 'none';
-    };
-
-    // Function to display additional salt information
-    const displaySaltInfo = (salt) => {
-        const selectedOption = document.querySelector(`#salt option[value="${salt}"]`);
-        usesText.innerText = `Uses: ${selectedOption.getAttribute('data-uses')}`;
-        safetyText.innerText = `Safety: ${selectedOption.getAttribute('data-safety')}`;
-        chemicalPropertiesText.innerText = `Chemical Properties: ${selectedOption.getAttribute('data-chemical-properties')}`;
-        healthBenefitsText.innerText = `Health Benefits: ${selectedOption.getAttribute('data-health-benefits')}`;
-        environmentalImpactText.innerText = `Environmental Impact: ${selectedOption.getAttribute('data-environmental-impact')}`;
-        funFactsText.innerText = `Fun Facts: ${selectedOption.getAttribute('data-fun-facts')}`;
-        additionalSaltInfo.style.display = 'block';
-    };
-
-    // Event listeners
-    calculatorForm.addEventListener('submit', handleFormSubmit);
-    resetButton.addEventListener('click', resetForm);
-
-    // Show/hide concentration value input based on concentration type
-    document.getElementById('concentrationType').addEventListener('change', (event) => {
-        const selectedType = event.target.value;
-        const molarityValueSelect = document.getElementById('molarityValue');
-        const concentrationValueInput = document.getElementById('concentrationValue');
-
-        if (selectedType === 'molarity') {
-            molarityValueSelect.style.display = 'block';
-            concentrationValueInput.style.display = 'none';
-        } else {
-            molarityValueSelect.style.display = 'none';
-            concentrationValueInput.style.display = 'block';
-        }
-    });
+document.getElementById("resetButton").addEventListener("click", function() {
+    document.getElementById("calculatorForm").reset();
+    document.getElementById
+    // Reset result and additional salt information
+    document.getElementById("result").style.display = "none";
+    document.getElementById("additionalSaltInfo").style.display = "none";
 });

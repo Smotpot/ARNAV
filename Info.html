@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Compounds App</title>
+    <link rel="stylesheet" href="2style.css">
+</head>
+<body>
+    <div class="container">
+        <h6>Created by -> Daksh Jain, Karmandeep Singh & Arnav Chaudhary</h6>
+        <h1>Chemical Compounds Information</h1>
+
+        <input type="text" id="searchInput" placeholder="Search by name or formula..." />
+        <button id="voiceSearch" class="voice-button">🎤</button>
+
+        <div class="filter-buttons">
+            <button class="filter-button" onclick="filterByType('acid')">Acids</button>
+            <button class="filter-button" onclick="filterByType('base')">Bases</button>
+            <button class="filter-button" onclick="filterByType('salt')">Salts</button>
+            <button class="filter-button" onclick="filterByType('all')">All</button>
+        </div>
+
+        <div id="compounds" class="compounds-container"></div>
+    </div>
+
+    <!-- Modal for displaying compound details -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="1script.js"></script>
+</body>
+</html>
