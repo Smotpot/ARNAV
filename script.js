@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
             NaHCO3: 84.01,
             MgSO4: 120.37,
             C2H2O4: 90.03,  // Oxalic Acid
-            Bohar:  136.07, // Bohar Salt (if considering as Borax, Na2B4O7·10H2O)
+            MohrSalt: 392.14, // Mohr's Salt (FeSO₄(NH₄)₂SO₄·6H₂O)
             KMnO4: 158.04,  // Potassium Permanganate
             HCl: 36.46,     // Hydrochloric Acid
             NaOH: 40.00,    // Sodium Hydroxide
