@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Constants Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Chemistry Constants Calculator</h1>
+
+        <label>Choose a constant to calculate:</label>
+        <select id="constant">
+            <option value="Avogadro">Avogadro's Number</option>
+            <option value="GasConstant">Gas Constant (R)</option>
+            <option value="Planck">Planck's Constant</option>
+            <option value="Boltzmann">Boltzmann Constant</option>
+        </select>
+
+        <button onclick="calculateConstant()">Get Constant</button>
+
+        <div class="result" id="result"></div>
+        <div class="nav-container">
+              <a href="index.html" class="nav-button quiz-link">Back to Calculator</a>
+        </div>
+    </div>
+
+    <script src="Constant.js"></script>
+</body>
+</html>
